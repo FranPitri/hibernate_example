@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '5.1.0'
+}
+
+shadowJar {
+   baseName = 'app'
+   classifier = null
+   version = null
+}
+
+mainClassName = 'com.hibernate_example.Main'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.sparkjava:spark-core:2.8.0'
+    compile 'org.slf4j:slf4j-simple:1.7.28'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.4.Final'
+    runtime group: 'mysql', name: 'mysql-connector-java', version: '8.0.17'
+    // these packages are no longer included in newer jdk versions
+    implementation 'javax.xml.bind:jaxb-api:2.2.11'
+    implementation 'com.sun.xml.bind:jaxb-core:2.2.11'
+    implementation 'com.sun.xml.bind:jaxb-impl:2.2.11'
+    implementation 'javax.activation:activation:1.1.1'
+}
